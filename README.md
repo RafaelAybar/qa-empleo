@@ -25,7 +25,7 @@ Parámetros a tener en cuenta:
         10 | Indefinido
         5 |  Beca
         1 | Prácticas (FCT y similares)
-        No especificado en la oferta | -10
+        -10 | No especificado en la oferta
         
         El resto de contratos están por determinar
         
