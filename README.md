@@ -3,7 +3,10 @@ En este proyecto se medirá el índice de fiabilidad de una empresa y las oferta
 El script de python procesará los datos introducdos de la siguiente manera y devolverá un mensaje indicando si la empresa
 es apta o no:
 
-```python3 nombre-de-la-empresa 10 5 0 5 -10 0 10```
+```python3 nombre-de-la-empresa nota-tipo-contrato nota-ubicación-cliente nota-requerimientos-cliente nota-vacaciones nota-salario nota-horario nota-teletrabajo```
+
+Ejemplo del script: 
+```python3 github 10 5 0 5 -10 0 10```
 
 Parámetros a tener en cuenta:
 * ### Rotación histórica de los empleados de la compañía
@@ -29,7 +32,7 @@ Parámetros a tener en cuenta:
         
         El resto de contratos están por determinar
         
-    *   #### 2. Ubicación del cliente
+    *   #### 2. Ubicación del cliente respecto a tu casa
         
         | Calificación | Tiempo
         | :------: |  :------: |
