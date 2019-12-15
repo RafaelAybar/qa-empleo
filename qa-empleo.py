@@ -25,7 +25,7 @@ estado = ""
 if nota <= 6:
     estado = "mal"
 
-elif nota > 4.2 < 10:
+elif 6 < nota < 10:
     estado = "bien"
 else:
     print("Debes introducir valores coherentes")
