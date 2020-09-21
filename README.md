@@ -1,6 +1,7 @@
 # qa-empleo
+
 En este proyecto se medirá el índice de fiabilidad de una empresa y las ofertas de trabajo que publican.
-El script de python procesará los datos introducdos de la siguiente manera y devolverá un mensaje indicando si la empresa
+El script de python procesará los datos introducidos de la siguiente manera y devolverá un mensaje indicando si la empresa
 es apta o no:
 
 ```python3 qa-empleo.py nombre-de-la-empresa nota-tipo-contrato nota-ubicación-cliente nota-requerimientos-cliente nota-vacaciones nota-salario nota-horario nota-teletrabajo```
@@ -45,7 +46,7 @@ Parámetros a tener en cuenta:
         | Calificación | Nivel de detalle
         | :------: |  :------: |
         10 | El cliente comunica con rotunda claridad qué necesita y las funciones y responsabilidades del empleado
-        5 |  El cliente meniciona con exactitud las herramientas con las que se trabaja
+        5 |  El cliente menciona con exactitud las herramientas con las que se trabaja
         0 |  El cliente no especifica nada en concreto
            
     *   #### 4. Vacaciones
@@ -54,7 +55,7 @@ Parámetros a tener en cuenta:
         | :------: |  :------: |
         10 | Superior a lo establecido en el convenio
         5 | Exactamente lo que indica el convenio 
-        0 | Lo que indica el conveio pero obligando a  cogerlos en periodos concretos
+        0 | Lo que indica el convenio pero obligando a  cogerlos en periodos concretos
         
     *   #### 5. Espectativas salariales
         | Calificación | Especificaciones del cliente
