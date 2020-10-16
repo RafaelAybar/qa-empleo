@@ -12,7 +12,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/RafaelAybar/qa-empleo",
     keywords="ofertas empresa fiabilidad calidad",
-    py_modules=["qa_empleo"],
+    py_modules=["qa_empleo", "analizadorsintactico"],
     entry_points={
         "console_scripts": [
             "qa-empleo=qa_empleo:ejecutar",
