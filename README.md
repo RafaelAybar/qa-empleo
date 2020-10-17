@@ -21,9 +21,9 @@ Parámetros a tener en cuenta:
 
         | Calificación | Porcentaje
         | :------: |  :------: |
-        10 | rotacion_historica < 50%
-        5 |  50% < rotacion_historica >= 60%
-        0 |  rotacion_historica > 60%
+        10 | Rotacion historica menor a 50%
+        5 |  Rotacion historica **entre** 50% **y** 60%
+        0 |  Rotacion historica **superior** a 60%
 
 * ### Detalles de la oferta
     *   #### 1. Tipo de contrato
@@ -41,9 +41,9 @@ Parámetros a tener en cuenta:
 
         | Calificación | Tiempo
         | :------: |  :------: |
-        10 | tiempo_casa_a_ubicacion_cliente < 30 min
-        5 |  30 min < tiempo_casa_a_ubicacion_cliente >= 60 min
-        0 |  tiempo_casa_a_ubicacion_cliente > 60 min
+        10 | Tiempo desde la casa a ubicacion del cliente **menor** a  30 minutos
+        5 |  Tiempo desde la casa a ubicacion del cliente  **entre** 30 minutos **y** 1 hora
+        0 |  Tiempo desde la casa a ubicacion del cliente **superior** a 1 hora
 
     *   #### 3. Requerimientos del cliente
 
