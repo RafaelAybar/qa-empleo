@@ -6,6 +6,8 @@ Returns:
 __version__ = "0.1"
 
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
 
 from analizadorsintactico import AnalizadorSintactico
 
@@ -48,12 +50,49 @@ class Empresa:
             sys.exit(estado)
         print(f'La puntuación media obtenida es: {nota_media}')
         print(f'La oferta está {estado}')
+    
+    def grafico_radar(self):
+    
+        labels=['Tipo contrato', 'Ubicación cliente', 'Requerimientos cliente', 'Vacaciones', 'Salario', 'Horario', 'Teletrabajo']
+        markers = [0, 2.5, 5, 7.5, 10]
+        claves_notas = list(self.params.keys())
+        claves_notas.remove('nombre_empresa')
+        stats=[]
+        for clave_nota in claves_notas:
+            stats.append(self.params[clave_nota])
+
+        angles = np.linspace(0, 2*np.pi, len(labels), endpoint=False)
+        stats = np.concatenate((stats,[stats[0]]))
+        angles = np.concatenate((angles,[angles[0]]))
+
+        fig= plt.figure()
+        ax = fig.add_subplot(111, polar=True)
+        ax.plot(angles, stats, 'o-', linewidth=2)
+        ax.fill(angles, stats, alpha=0.25)
+        ax.set_thetagrids(angles * 180/np.pi, labels, color='dimgray')
+        plt.yticks(markers)
+        ax.grid(True)
+        ax . set_ylim (0, 10)
+        for label, angle in zip(ax.get_xticklabels(), angles):
+            if angle in (0, np.pi/2):
+                label.set_horizontalalignment('left')
+            elif np.pi/4 < angle < np.pi/2:
+                label.set_horizontalalignment('left')
+            elif np.pi/2 < angle < 5*np.pi/6:
+                label.set_horizontalalignment('center')
+            elif 5*np.pi/3 < angle < 2*np.pi:
+                label.set_horizontalalignment('left')
+            else:
+                label.set_horizontalalignment('right')
+            ax.set_title('{}'.format(self.params['nombre_empresa']),y=1.08, size=15,color='Black',)
+        return plt.show()
 
 
 def ejecutar():
     params = AnalizadorSintactico.parsear_entrada()
     MiEmpresa = Empresa(params=params)
     MiEmpresa.obtener_estado()
+    MiEmpresa.grafico_radar()
 
 
 if __name__ == '__main__':
