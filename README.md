@@ -1,8 +1,12 @@
 # qa-empleo
 
 En este proyecto se medirá el índice de fiabilidad de una empresa y las ofertas de trabajo que publican.
-El script de python procesará los datos introducidos de la siguiente manera y devolverá un mensaje indicando si la empresa
-es apta o no:
+El script de python procesará los datos introducidos de la siguiente manera y devolverá los siguientes mensajes:
+
+`La oferta está mal` : Esto significa que **no es una empresa apta**
+
+`La oferta está bien` : Esto significa que **si es una empresa apta**
+
 
 ```python3 qa_empleo.py nombre-de-la-empresa nota-tipo-contrato nota-ubicación-cliente nota-requerimientos-cliente nota-vacaciones nota-salario nota-horario nota-teletrabajo```
 
@@ -17,9 +21,9 @@ Parámetros a tener en cuenta:
 
         | Calificación | Porcentaje
         | :------: |  :------: |
-        10 | < 50%
-        5 |  50% < x >= 60%
-        0 |  > 60%
+        10 | Rotacion historica menor a 50%
+        5 |  Rotacion historica **entre** 50% **y** 60%
+        0 |  Rotacion historica **superior** a 60%
 
 * ### Detalles de la oferta
     *   #### 1. Tipo de contrato
@@ -33,19 +37,19 @@ Parámetros a tener en cuenta:
 
         El resto de contratos están por determinar
 
-    *   #### 2. Ubicación del cliente respecto a tu casa
+    *   #### 2. Ubicación del cliente respecto a su casa
 
         | Calificación | Tiempo
         | :------: |  :------: |
-        10 | < 30 min
-        5 |  30 min < x >= 60 min
-        0 |  > 60 min
+        10 | Tiempo desde la casa a ubicacion del cliente **menor** a  30 minutos
+        5 |  Tiempo desde la casa a ubicacion del cliente  **entre** 30 minutos **y** 1 hora
+        0 |  Tiempo desde la casa a ubicacion del cliente **superior** a 1 hora
 
     *   #### 3. Requerimientos del cliente
 
         | Calificación | Nivel de detalle
         | :------: |  :------: |
-        10 | El cliente comunica con rotunda claridad qué necesita y las funciones y responsabilidades del empleado
+        10 | El cliente comunica con rotunda claridad lo qué necesita, las funciones y responsabilidades del empleado
         5 |  El cliente menciona con exactitud las herramientas con las que se trabaja
         0 |  El cliente no especifica nada en concreto
 
@@ -55,14 +59,14 @@ Parámetros a tener en cuenta:
         | :------: |  :------: |
         10 | Superior a lo establecido en el convenio
         5 | Exactamente lo que indica el convenio
-        0 | Lo que indica el convenio pero obligando a  cogerlos en periodos concretos
+        0 | Lo que indica el convenio pero obligando a usarlas en periodos especificos
 
-    *   #### 5. Espectativas salariales
+    *   #### 5. Expectativas salariales
         | Calificación | Especificaciones del cliente
         | :------: |  :------: |
-        10 | Sueldo por encima de mercado
-        5 | Sueldo a nivel de mercado
-        0 | Sueldo inferior a nivel de mercado
+        10 | Sueldo por encima del mercado
+        5 | Sueldo a nivel del mercado
+        0 | Sueldo inferior a nivel del mercado
         -10 | No especificadas / subcontratado
 
     *   #### 6. Horario
