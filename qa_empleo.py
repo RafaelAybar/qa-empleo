@@ -13,7 +13,6 @@ from analizadorsintactico import AnalizadorSintactico
 
 
 class Empresa:
-
     def __init__(self, params: dict) -> None:
         self.params = params
 
@@ -27,7 +26,7 @@ class Empresa:
         suma = 0
         media = 0
         claves_notas = list(self.params.keys())
-        claves_notas.remove('nombre_empresa')
+        claves_notas.remove("nombre_empresa")
         for clave_nota in claves_notas:
             suma += self.params[clave_nota]
         media = round(suma / 7, 1)
@@ -35,56 +34,78 @@ class Empresa:
 
     def obtener_estado(self) -> None:
         """
-        obtener_estado() toma la nota media e imprime por pantalla la clasificación 
+        obtener_estado() toma la nota media e imprime por pantalla la clasificación
         de dicha nota.
 
         """
-        estado = ''
+        estado = ""
         nota_media = self._calcula_media_notas()
         if -10 <= nota_media <= 6:
-            estado = 'mal'
+            estado = "mal"
         elif 6 < nota_media <= 10:
-            estado = 'bien'
+            estado = "bien"
         else:
-            estado = 'Debes introducir valores coherentes'
+            estado = "Debes introducir valores coherentes"
             sys.exit(estado)
-        print(f'La puntuación media obtenida es: {nota_media}')
-        print(f'La oferta está {estado}')
-    
+        print(f"La puntuación media obtenida es: {nota_media}")
+        print(f"La oferta está {estado}")
+
     def grafico_radar(self):
-    
-        labels=['Tipo contrato', 'Ubicación cliente', 'Requerimientos cliente', 'Vacaciones', 'Salario', 'Horario', 'Teletrabajo']
+        """
+        grafico_radar() toma las notas de la empresa y genera una visualización de
+        ellas en un diagrama de araña. Para el gráfico, las notas negativas se igualan
+        a cero.
+
+        """
+        labels = [
+            "Tipo contrato",
+            "Ubicación cliente",
+            "Requerimientos cliente",
+            "Vacaciones",
+            "Salario",
+            "Horario",
+            "Teletrabajo",
+        ]
         markers = [0, 2.5, 5, 7.5, 10]
         claves_notas = list(self.params.keys())
-        claves_notas.remove('nombre_empresa')
-        stats=[]
+        claves_notas.remove("nombre_empresa")
+        stats = []
         for clave_nota in claves_notas:
-            stats.append(self.params[clave_nota])
+            nota = self.params[clave_nota]
+            if nota < 0:
+                stats.append(0)
+            else:
+                stats.append(nota)
 
-        angles = np.linspace(0, 2*np.pi, len(labels), endpoint=False)
-        stats = np.concatenate((stats,[stats[0]]))
-        angles = np.concatenate((angles,[angles[0]]))
+        angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False)
+        stats = np.concatenate((stats, [stats[0]]))
+        angles = np.concatenate((angles, [angles[0]]))
 
-        fig= plt.figure()
+        fig = plt.figure()
         ax = fig.add_subplot(111, polar=True)
-        ax.plot(angles, stats, 'o-', linewidth=2)
+        ax.plot(angles, stats, "o-", linewidth=2)
         ax.fill(angles, stats, alpha=0.25)
-        ax.set_thetagrids(angles * 180/np.pi, labels, color='dimgray')
+        ax.set_thetagrids(angles[0:7] * 180 / np.pi, labels, color="dimgray")
         plt.yticks(markers)
         ax.grid(True)
-        ax . set_ylim (0, 10)
+        ax.set_ylim(0, 10)
         for label, angle in zip(ax.get_xticklabels(), angles):
-            if angle in (0, np.pi/2):
-                label.set_horizontalalignment('left')
-            elif np.pi/4 < angle < np.pi/2:
-                label.set_horizontalalignment('left')
-            elif np.pi/2 < angle < 5*np.pi/6:
-                label.set_horizontalalignment('center')
-            elif 5*np.pi/3 < angle < 2*np.pi:
-                label.set_horizontalalignment('left')
+            if angle in (0, np.pi / 2):
+                label.set_horizontalalignment("left")
+            elif np.pi / 4 < angle < np.pi / 2:
+                label.set_horizontalalignment("left")
+            elif np.pi / 2 < angle < 5 * np.pi / 6:
+                label.set_horizontalalignment("center")
+            elif 5 * np.pi / 3 < angle < 2 * np.pi:
+                label.set_horizontalalignment("left")
             else:
-                label.set_horizontalalignment('right')
-            ax.set_title('{}'.format(self.params['nombre_empresa']),y=1.08, size=15,color='Black',)
+                label.set_horizontalalignment("right")
+            ax.set_title(
+                "{}".format(self.params["nombre_empresa"]),
+                y=1.08,
+                size=15,
+                color="Black",
+            )
         return plt.show()
 
 
@@ -95,5 +116,5 @@ def ejecutar():
     MiEmpresa.grafico_radar()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ejecutar()
