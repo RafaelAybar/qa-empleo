@@ -86,3 +86,4 @@ Parámetros a tener en cuenta:
 ## Agradecimientos
 
 * Empaquetado: [Iago Alonso (@ibLeDy)](https://github.com/ibLeDy)
+* Refactorización de Código: [Víctor Yelicich (@vmyelicich)](https://github.com/vmyelicich)
